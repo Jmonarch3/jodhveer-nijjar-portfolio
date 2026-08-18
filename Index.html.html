@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Finance & Equity Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EEF0EC;
+    --paper-raised: #F7F8F5;
+    --ink: #14213D;
+    --ink-soft: #3C4A63;
+    --muted: #626B5F;
+    --brass: #A8763E;
+    --brass-deep: #8A5F2E;
+    --rule: #C7CCC3;
+    --up: #2F6B3A;
+    --shadow: rgba(20,33,61,0.10);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* -------- Header -------- */
+  header.hero{padding:64px 0 36px;border-bottom:1px solid var(--rule);}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass-deep);
+    margin:0 0 14px;
+  }
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(34px,6vw,54px);
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .role-line{
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    max-width:560px;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .meta-row span::before{content:"—  ";color:var(--brass);}
+
+  /* -------- Ticker signature -------- */
+  .ticker-outer{
+    background:var(--ink);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    overflow:hidden;
+    position:relative;
+  }
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 34s linear infinite;
+    padding:13px 0;
+  }
+  .ticker-track:hover{animation-play-state:paused;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .tick{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:#EAEAE2;
+    white-space:nowrap;
+    padding:0 26px;
+    border-right:1px solid #2C3B5C;
+  }
+  .tick b{color:#fff;font-weight:500;}
+  .tick .up{color:#7FBF8A;}
+  .tick .flat{color:#D8BE8E;}
+
+  /* -------- About -------- */
+  section.about{padding:44px 0 8px;}
+  section.about p{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0;
+  }
+
+  /* -------- Projects -------- */
+  section.projects{padding:46px 0 20px;}
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass-deep);
+    margin:0 0 22px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .section-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+
+  .card{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:28px 30px;
+    margin-bottom:20px;
+    box-shadow:0 1px 2px var(--shadow);
+    position:relative;
+  }
+  .card::before{
+    content:attr(data-tag);
+    position:absolute;
+    top:0; right:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:var(--brass-deep);
+    background:#EDE1CC;
+    padding:5px 12px;
+    border-bottom-left-radius:3px;
+  }
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:23px;
+    margin:6px 0 8px;
+    padding-right:120px;
+  }
+  .card p.desc{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 16px;
+    max-width:560px;
+  }
+  .stat-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+    padding:12px 0;
+    border-top:1px dashed var(--rule);
+    border-bottom:1px dashed var(--rule);
+  }
+  .stat-row div{display:flex;flex-direction:column;}
+  .stat-row div b{color:var(--ink);font-size:16px;font-weight:500;}
+  .stat-row div span{white-space:nowrap;}
+  .card-links{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    padding:9px 16px;
+    border-radius:2px;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn.primary{background:var(--ink);color:#fff;}
+  .btn:hover{background:var(--brass);border-color:var(--brass);color:#fff;}
+
+  .placeholder-note{
+    font-size:12px;
+    color:var(--muted);
+    font-style:italic;
+    margin-top:6px;
+  }
+
+  /* -------- Footer -------- */
+  footer{
+    padding:50px 0 60px;
+    border-top:1px solid var(--rule);
+    margin-top:30px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);}
+  footer a:hover{text-decoration-color:var(--brass);}
+
+  @media(max-width:600px){
+    .card h3{padding-right:0;}
+    .card::before{position:static;display:inline-block;margin-bottom:10px;border-radius:2px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Finance · Equity Research · Analytics</p>
+    <h1 class="name">Jodhveer Singh Nijjar</h1>
+    <p class="role-line">MBA (Finance), EIILM Kolkata — seeking entry-level Equity Research / Financial Analyst roles in Kolkata, West Bengal.</p>
+    <div class="meta-row">
+      <span>Kolkata, West Bengal, India</span>
+      <span>jodhveernijjar@outlook.com</span>
+      <span><a href="https://www.linkedin.com/in/jodhveer-singh-nijjar3" target="_blank" rel="noopener" style="color:inherit;">www.linkedin.com/in/jodhveer-singh-nijjar3</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="ticker-outer">
+  <div class="ticker-track">
+    <span class="tick">TCS <b>ROE</b> <span class="up">51.8%</span></span>
+    <span class="tick">INFY <b>P/E</b> <span class="flat">15.2x</span></span>
+    <span class="tick">HCLTECH <b>ROCE</b> <span class="up">46.0%</span></span>
+    <span class="tick">TCS <b>REVENUE FY26 TTM</b> ₹2,75,859 Cr</span>
+    <span class="tick">INFY <b>DIV YIELD</b> <span class="up">4.1%</span></span>
+    <span class="tick">SECTOR <b>P/E RANGE</b> 15x–21x</span>
+    <span class="tick">HCLTECH <b>NET MARGIN</b> 13.0%</span>
+    <span class="tick">TCS <b>MCAP</b> ₹8,54,230 Cr</span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick">TCS <b>ROE</b> <span class="up">51.8%</span></span>
+    <span class="tick">INFY <b>P/E</b> <span class="flat">15.2x</span></span>
+    <span class="tick">HCLTECH <b>ROCE</b> <span class="up">46.0%</span></span>
+    <span class="tick">TCS <b>REVENUE FY26 TTM</b> ₹2,75,859 Cr</span>
+    <span class="tick">INFY <b>DIV YIELD</b> <span class="up">4.1%</span></span>
+    <span class="tick">SECTOR <b>P/E RANGE</b> 15x–21x</span>
+    <span class="tick">HCLTECH <b>NET MARGIN</b> 13.0%</span>
+    <span class="tick">TCS <b>MCAP</b> ₹8,54,230 Cr</span>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <p>I'm an MBA Finance graduate building independent research and analytics work while job-searching in Kolkata, West Bengal. Below are two self-directed projects applying equity research and financial analysis methods to the Indian IT services sector.</p>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="wrap">
+    <p class="section-label">Projects</p>
+
+    <div class="card" data-tag="EQUITY RESEARCH">
+      <h3>Indian IT Sector — Equity Research Report</h3>
+      <p class="desc">Comparative research report on TCS, Infosys, and HCL Technologies: revenue &amp; margin trends (FY21–FY26 TTM), ROE/ROCE ratio analysis, P/E-based relative valuation, and a peer-comparison investment rating with key risks.</p>
+      <div class="stat-row">
+        <div><b>3</b><span>companies covered</span></div>
+        <div><b>6 yrs</b><span>financial history</span></div>
+        <div><b>8</b><span>report sections</span></div>
+      </div>
+      <div class="card-links">
+        <a class="btn primary" href="https://drive.google.com/drive/folders/1k-HjHBp95u7vNcB9v1A-kwtCPIzzgDNY?usp=sharing" target="_blank" rel="noopener">View Report ↗</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1k-HjHBp95u7vNcB9v1A-kwtCPIzzgDNY?usp=sharing" target="_blank" rel="noopener">Download .docx</a>
+      </div>
+      <p class="placeholder-note">Opens the Google Drive folder — select the report file inside.</p>
+    </div>
+
+    <div class="card" data-tag="EXCEL DASHBOARD">
+      <h3>IT Sector Financial Analytics Dashboard</h3>
+      <p class="desc">Formula-driven Excel dashboard comparing revenue, profit, margins, and ROE across the same three companies — built with live formulas (not hardcoded figures) and auto-updating charts.</p>
+      <div class="stat-row">
+        <div><b>4</b><span>live charts</span></div>
+        <div><b>3</b><span>linked sheets</span></div>
+        <div><b>36</b><span>formulas</span></div>
+      </div>
+      <div class="card-links">
+        <a class="btn primary" href="https://drive.google.com/drive/folders/1k-HjHBp95u7vNcB9v1A-kwtCPIzzgDNY?usp=sharing" target="_blank" rel="noopener">View Dashboard ↗</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1k-HjHBp95u7vNcB9v1A-kwtCPIzzgDNY?usp=sharing" target="_blank" rel="noopener">Download .xlsx</a>
+      </div>
+      <p class="placeholder-note">Opens the Google Drive folder — select the dashboard file inside.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Open to Equity Research, Financial Analyst, and Pricing Analyst roles — Kolkata, West Bengal (in-office / hybrid / remote).<br>
+    Reach me at <a href="mailto:jodhveernijjar@outlook.com">jodhveernijjar@outlook.com</a> or on <a href="https://www.linkedin.com/in/jodhveer-singh-nijjar3" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
